@@ -1,0 +1,31 @@
+---
+- hosts: thinclients
+  remote_user: sysadmin
+  become: yes
+  tasks:
+  - name: ensure that base packages for LDAP are installed
+    apt:
+        name: "{{ packages }}"
+        state: present
+        update_cache: yes
+    vars:
+        packages:
+        - aptitude
+        - libnss-ldap
+        - libpam-ldap
+        - nscd
+        - portmap
+
+  - name: generate the relevant config files for LDAP
+    template:
+        src: "{{ srcs }}"
+        dest: "{{ dests }}"
+    vars:
+        srcs:
+        - ldap.j2
+        - libnss-ldap.j2
+        - nsswitch.j2
+        dests:
+        - /etc/ldap/ldap.conf
+        - /etc/libnss-ldap.conf
+        - /etc/nsswitch.conf
