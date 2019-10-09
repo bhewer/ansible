@@ -1,0 +1,132 @@
+Thinclient Ansible -*- mode: org -*-
+
+* TODO Include LDAP
+** TODO Install the following packages
+   - libnss-ldap
+   - libpam-ldap
+   - nscd
+   - portmap
+** TODO /etc/ldap/ldap.conf
+#+begin_src text
+HOST    10.0.0.2 # IP des LDAP Servers
+BASE    dc=math,dc=uni-sb,dc=de # BASE DN
+#+end_src
+** TODO /etc/libnss-ldap.conf
+#+begin_src 
+host 10.0.0.2
+base dc=math,dc=uni-sb,dc=de
+ldap_version 3
+#+end_src
+** TODO /etc/nsswitch.conf
+#+begin_src text
+passwd:         files ldap
+group:          files ldap
+shadow:         files ldap
+hosts:          files dns
+networks:       files
+#+end_src
+* TODO Include custom conf files
+** TODO Install the following packages
+- libpam-mount
+- sshfs
+** TODO Add gemini to /etc/ssh/ssh_known_hosts
+** TODO Create /etc/security/pam_mount.conf.xml with
+#+begin_src text
+<volume fstype="fuse"
+        sgrp="permanent"
+        path="sshfs#%(USER)@gemini:"
+        mountpoint="~/home"
+options="nosuid,nodev,noatime,reconnect,allow_other,nonempty,default_permissions,password_stdin"
+ssh="0" noroot="1" />
+#+end_src
+** TODO /etc/profile.d/resetHome.sh
+#+begin_src text
+if [[ $EUID -gt 10000 ]] ; then
+          export HOME=$HOME/home
+fi
+#+end_src
+** TODO /etc/profile.d/switchCups.sh
+#+begin_src text
+export CUPS_SERVER=spooler.math.uni-sb.de:631
+#+end_src
+** TODO Create remote matlab instance
+*** /usr/share/x2goclient/sessions
+#+begin_src text
+[20191002112254824]
+applications=matlab -desktop, WWWBROWSER, MAILCLIENT, OFFICE, TERMINAL, matlab
+autologin=false
+clipboard=both
+command=matlab -desktop
+defsndport=true
+directrdp=false
+directrdpsettings=
+directxdmcp=false
+directxdmcpsettings=
+display=1
+dpi=94
+export=
+fstunnel=true
+fullscreen=false
+height=1024
+host=gemini
+icon=:/img/icons/128x128/x2gosession.png
+iconvfrom=ISO8859-1
+iconvto=UTF-8
+key=
+krbdelegation=false
+krblogin=false
+maxdim=false
+multidisp=false
+name=Matlab-gemini
+pack=16m-jpeg
+print=true
+published=false
+quality=9
+rdpclient=rdesktop
+rdpoptions=
+rdpport=3389
+rdpserver=
+rootless=true
+setdpi=true
+sndport=4713
+sound=true
+soundsystem=pulse
+soundtunnel=true
+speed=4
+sshport=22
+sshproxyautologin=false
+sshproxyhost=
+sshproxykeyfile=
+sshproxykrblogin=false
+sshproxyport=22
+sshproxysamepass=false
+sshproxysameuser=false
+sshproxytype=SSH
+sshproxyuser=
+startsoundsystem=true
+type=auto
+useiconv=false
+usekbd=true
+user=
+usesshproxy=false
+width=1280
+xdmcpclient=Xnest
+xdmcpserver=localhost
+xinerama=false
+#+end_src
+*** /usr/share/applications/matlab-remote.desktop
+#+begin_src text
+[Desktop Entry]
+Exec=sh -c "x2goclient --hide --session-conf\=/usr/share/x2goclient/sessions --user\=\$USER --sessionid\=20191002112254824"
+Icon=/usr/share/icons/matlab.png
+Name=Matlab
+StartupNotify=true
+Terminal=false
+Type=Application
+X-KDE-SubstituteUID=false
+#+end_src
+* TODO Install remaining packages
+- libreoffice
+- Some LaTex editor
+- x2goclient
+- thunderbird
