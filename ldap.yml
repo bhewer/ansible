@@ -43,19 +43,19 @@
         - {name: 'ldap-auth-config',
         question: 'ldap-auth-config/move-to-debconf',
         value: 'true',
-        vtype: 'string'}
+        vtype: 'boolean'}
         - {name: 'ldap-auth-config',
         question: 'ldap-auth-config/dblogin',
         value: 'false',
-        vtype: 'string'}
+        vtype: 'boolean'}
         - {name: 'ldap-auth-config',
         question: 'ldap-auth-config/dbrootlogin',
         value: 'false',
-        vtype: 'string'}
+        vtype: 'boolean'}
         - {name: 'ldap-auth-config',
         question: 'ldap-auth-config/override',
         value: 'true',
-        vtype: 'string'}
+        vtype: 'boolean'}
   - name: generate /etc/nsswitch.conf
     template:
         src: nsswitch.j2
