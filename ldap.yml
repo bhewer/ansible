@@ -3,20 +3,6 @@
   remote_user: sysadmin
   become: yes
   tasks:
-  - name: ensure that base packages for LDAP are installed
-    apt:
-        name: "{{ packages }}"
-        state: present
-        update_cache: yes
-    vars:
-        packages:
-        - aptitude
-        - libnss-ldap
-        - libpam-ldap
-        - nscd
-        - portmap
-        - oddjob-mkhomedir
-
   - name: manage /etc/ldap.conf via debconf
     debconf:
         name: "{{ item.name }}"
@@ -60,3 +46,17 @@
     template:
         src: nsswitch.j2
         dest: /etc/nsswitch.conf
+  - name: ensure that base packages for LDAP are installed
+    apt:
+        name: "{{ packages }}"
+        state: present
+        update_cache: yes
+    vars:
+        packages:
+        - aptitude
+        - libnss-ldap
+        - libpam-ldap
+        - nscd
+        - portmap
+        - oddjob-mkhomedir
+
