@@ -1,5 +1,5 @@
 ---
-- hosts: thinclients
+- hosts: 127.0.0.1
   remote_user: sysadmin
   become: yes
   tasks:
@@ -15,17 +15,20 @@
         - libpam-ldap
         - nscd
         - portmap
+        - oddjob-mkhomedir
 
-  - name: generate the relevant config files for LDAP
-    template:
-        src: "{{ srcs }}"
-        dest: "{{ dests }}"
-    vars:
-        srcs:
-        - ldap.j2
-        - libnss-ldap.j2
-        - nsswitch.j2
-        dests:
-        - /etc/ldap/ldap.conf
-        - /etc/libnss-ldap.conf
-        - /etc/nsswitch.conf
+  - name: relevant configs for LDAP
+    debconf:
+        name: "{{ item.name }}"
+        question: "{{ item.question }}"
+        value: "{{ item.value }}"
+        vtype: "{{ item.vtype }}"
+    loop:
+        - {name: 'ldap-auth-config',
+        question: 'ldapns/ldap-server',
+        value: 'ldap://ldap.math.uni-sb.de ldap://ldap-slave-1.math.uni-sb.de ldap://ldap-slave-2.math.uni-sb.de',
+        vtype: 'string'}
+        - {name: 'ldap-auth-config',
+        question: 'ldapns/base-dn',
+        value: 'dc=math,dc=uni-sb,dc=de',
+        vtype: 'string'}
