@@ -32,6 +32,30 @@
         question: 'ldap-auth-config/ldapns/base-dn',
         value: 'dc=math,dc=uni-sb,dc=de',
         vtype: 'string'}
+        - {name: 'ldap-auth-config',
+        question: 'ldap-auth-config/ldapns/ldap_version',
+        value: '3',
+        vtype: 'string'}
+        - {name: 'ldap-auth-config',
+        question: 'ldap-auth-config/pam_password',
+        value: 'md5',
+        vtype: 'string'}
+        - {name: 'ldap-auth-config',
+        question: 'ldap-auth-config/move-to-debconf',
+        value: 'true',
+        vtype: 'string'}
+        - {name: 'ldap-auth-config',
+        question: 'ldap-auth-config/dblogin',
+        value: 'false',
+        vtype: 'string'}
+        - {name: 'ldap-auth-config',
+        question: 'ldap-auth-config/dbrootlogin',
+        value: 'false',
+        vtype: 'string'}
+        - {name: 'ldap-auth-config',
+        question: 'ldap-auth-config/override',
+        value: 'true',
+        vtype: 'string'}
   - name: generate /etc/nsswitch.conf
     template:
         src: nsswitch.j2
