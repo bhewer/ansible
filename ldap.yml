@@ -58,5 +58,8 @@
         - libpam-ldap
         - nscd
         - portmap
-        - oddjob-mkhomedir
 
+  - name: replace /etc/pam.d/common-session
+    template:
+        src: common-session.j2
+        dest: /etc/pam.d/common-session
