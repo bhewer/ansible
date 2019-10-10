@@ -17,7 +17,7 @@
         - portmap
         - oddjob-mkhomedir
 
-  - name: relevant configs for LDAP
+  - name: manage /etc/ldap.conf via debconf
     debconf:
         name: "{{ item.name }}"
         question: "{{ item.question }}"
@@ -32,3 +32,7 @@
         question: 'ldapns/base-dn',
         value: 'dc=math,dc=uni-sb,dc=de',
         vtype: 'string'}
+  - name: generate /etc/nsswitch.conf
+    template:
+        src: nsswitch.j2
+        dest: /etc/nsswitch.conf
