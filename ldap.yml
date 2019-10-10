@@ -25,11 +25,11 @@
         vtype: "{{ item.vtype }}"
     loop:
         - {name: 'ldap-auth-config',
-        question: 'ldapns/ldap-server',
+        question: 'ldap-auth-config/ldapns/ldap-server',
         value: 'ldap://ldap.math.uni-sb.de ldap://ldap-slave-1.math.uni-sb.de ldap://ldap-slave-2.math.uni-sb.de',
         vtype: 'string'}
         - {name: 'ldap-auth-config',
-        question: 'ldapns/base-dn',
+        question: 'ldap-auth-config/ldapns/base-dn',
         value: 'dc=math,dc=uni-sb,dc=de',
         vtype: 'string'}
   - name: generate /etc/nsswitch.conf
