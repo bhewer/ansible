@@ -39,7 +39,7 @@
         - {name: 'ldap-auth-config',
         question: 'ldap-auth-config/pam_password',
         value: 'md5',
-        vtype: 'string'}
+        vtype: 'select'}
         - {name: 'ldap-auth-config',
         question: 'ldap-auth-config/move-to-debconf',
         value: 'true',
