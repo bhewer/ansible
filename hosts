@@ -1,2 +1,22 @@
 [mg]
 localhost ansible_connection=local group_server="d9-mg"
+[cb]
+localhost ansible_connection=local group_server="d9-cb"
+[rs]
+localhost ansible_connection=local group_server="d9-rs"
+[gw]
+localhost ansible_connection=local group_server="d9-gw"
+[mf]
+localhost ansible_connection=local group_server="d9-mf"
+[mb]
+localhost ansible_connection=local group_server="d9-mb"
+[je]
+localhost ansible_connection=local group_server="d9-je"
+[vl]
+localhost ansible_connection=local group_server="d9-vl"
+[mw]
+localhost ansible_connection=local group_server="d9-mw"
+[fs]
+localhost ansible_connection=local group_server="d9-fs"
+[hz]
+localhost ansible_connection=local group_server="d9-hz"

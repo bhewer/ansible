@@ -13,7 +13,7 @@
         - sshfs
         - libpam-mount
 
-  - name: replace /etc/security/pam_mount.conf.xml
+  - name: generate right config files
     template:
         src: "{{ item.src }}"
         dest: "{{ item.dest }}"
@@ -24,3 +24,5 @@
               dest: '/etc/profile.d/resetHome.sh'}
             - {src: 'switchCups.j2',
               dest: '/etc/profile.d/switchCups.sh'}
+            - {src: 'known_hosts.j2',
+              dest: '/etc/ssh/ssh_known_hosts'}

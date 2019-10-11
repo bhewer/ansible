@@ -43,7 +43,7 @@
         sgrp="permanent"
         path="sshfs#%(USER)@{{ group_server }}:"
         mountpoint="~/home"
-options="nosuid,nodev,noatime,reconnect,allow_other,nonempty,default_permissions,password_stdin"
+options="nosuid,nodev,noatime,reconnect,nonempty,default_permissions,password_stdin"
 ssh="0" noroot="1" />
 
 </pam_mount>
