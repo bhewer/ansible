@@ -1,2 +1,2 @@
 [mg]
-127.0.0.1 d9-server="d9-mg"
+localhost ansible_connection=local d9-server="d9-mg"
