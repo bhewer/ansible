@@ -1,5 +1,3 @@
-[mg]
-localhost ansible_connection=local group_server="d9-mg"
 [cb]
 localhost ansible_connection=local group_server="d9-cb"
 [rs]
@@ -20,3 +18,5 @@ localhost ansible_connection=local group_server="d9-mw"
 localhost ansible_connection=local group_server="d9-fs"
 [hz]
 localhost ansible_connection=local group_server="d9-hz"
+[mg]
+localhost ansible_connection=local group_server="d9-mg"
