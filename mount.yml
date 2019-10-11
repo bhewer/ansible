@@ -22,3 +22,5 @@
               dest: '/etc/security/pam_mount.conf.xml'}
             - {src: 'resetHome.j2',
               dest: '/etc/profile.d/resetHome.sh'}
+            - {src: 'switchCups.j2',
+              dest: '/etc/profile.d/switchCups.sh'}
