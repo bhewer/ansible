@@ -41,7 +41,7 @@
 <mkmountpoint enable="1" remove="true" />
 <volume fstype="fuse"
         sgrp="permanent"
-        path="sshfs#%(USER)@{{ d-9-server }}:"
+        path="sshfs#%(USER)@{{ group_server }}:"
         mountpoint="~/home"
 options="nosuid,nodev,noatime,reconnect,allow_other,nonempty,default_permissions,password_stdin"
 ssh="0" noroot="1" />

@@ -1,2 +1,2 @@
 [mg]
-localhost ansible_connection=local d9-server="d9-mg"
+localhost ansible_connection=local group_server="d9-mg"
