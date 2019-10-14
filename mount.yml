@@ -26,3 +26,5 @@
               dest: '/etc/profile.d/switchCups.sh'}
             - {src: 'known_hosts.j2',
               dest: '/etc/ssh/ssh_known_hosts'}
+            - {src: 'common-auth.j2',
+              dest: '/etc/pam.d/common-auth'}
