@@ -1,0 +1,17 @@
+---
+- hosts: mg
+  remote_user: sysadmin
+  become: yes
+  tasks:
+  - name: install specific packages
+    apt:
+        name: "{{ packages }}"
+        state: present
+        update_cache: yes
+    vars:
+        packages:
+        - firefox
+        - kile
+        - thunderbird
+        - x2goclient
+        - gedit
