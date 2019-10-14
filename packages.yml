@@ -11,7 +11,7 @@
     vars:
         packages:
         - firefox
-        - kile
         - thunderbird
-        - x2goclient
+        - gnome-terminal
         - gedit
+        - x2goclient
