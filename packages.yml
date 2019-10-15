@@ -14,6 +14,8 @@
         - thunderbird
         - gnome-terminal
         - gedit
+        - evince
+        - eog
         - x2goclient
         - texlive-latex-extra
         - texstudio

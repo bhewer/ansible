@@ -1,2 +1,1 @@
-[rs]
-localhost ansible_connection=local group_server="gemini" group_webspace="ag-speicher"
+localhost ansible_connection=local
