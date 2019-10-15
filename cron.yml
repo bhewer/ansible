@@ -1,6 +1,7 @@
 ---
 - hosts: all
   remote_user: sysadmin
+  become: yes
   tasks:
   - name: set a cron for ansible-pull at reboot
     cron:
