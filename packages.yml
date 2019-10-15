@@ -15,3 +15,12 @@
         - gnome-terminal
         - gedit
         - x2goclient
+        - texlive-latex-extra
+        - texstudio
+        - texlive-science
+        - texlive-bibtex-extra
+        - texlive-lang-german
+        - texlive-lang-english
+        - texlive-pstricks
+        - texlive-publishers
+        - texlive-luatex

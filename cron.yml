@@ -1,0 +1,16 @@
+---
+- hosts: all
+  remote_user: sysadmin
+  become: yes
+  tasks:
+  - name: set a cron for ansible-pull at reboot
+    cron:
+            name: "pull at reboot"
+            special_time: reboot
+            job: "ansible-pull -U https://github.com/jschulthess/ansible-pull-update -i hosts update.yml"
+  - name: set a cron for ansible-pull at 2am
+    cron:
+            name: "pull at 2am"
+            minute: "0"
+            hour: "2"
+            job: "ansible-pull -U https://github.com/jschulthess/ansible-pull-update -i hosts update.yml"

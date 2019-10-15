@@ -1,4 +1,5 @@
 ---
+- import_playbook: cron.yml
 - import_playbook: ldap.yml
 - import_playbook: mount.yml
 - import_playbook: packages.yml
