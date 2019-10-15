@@ -1,0 +1,13 @@
+---
+- hosts: all
+  remote_user: sysadmin
+  become: yes
+  tasks:
+  - name: test update
+    apt:
+        name: "{{ packages }}"
+        state: present
+        update_cache: yes
+    vars:
+        packages:
+        - kile
