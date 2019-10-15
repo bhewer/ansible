@@ -2,13 +2,13 @@
 - hosts: all
   remote_user: sysadmin
   become: yes
-- set_fact:
+  tasks:
+  - set_fact:
         group_server: "d9-mg"
         when: ansible_default_ipv4.gateway == "134.96.64"
-- set_fact:
+  - set_fact:
         group_server: "d9-rs"
         when: ansible_default_ipv4.gateway == "134.96.28"
-  tasks:
   - name: ensure that base packages for sshfs are installed
     apt:
         name: "{{ packages }}"
