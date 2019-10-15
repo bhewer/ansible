@@ -1,5 +1,5 @@
 ---
-- hosts: mg
+- hosts: all
   remote_user: sysadmin
   become: yes
   tasks:
