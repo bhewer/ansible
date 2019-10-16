@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- hosts: 127.0.0.1
+  connection: local
   remote_user: sysadmin
   become: yes
   tasks:
@@ -27,6 +28,5 @@
             - {src: 'maple.j2',
               dest: '/usr/share/applications/maple-gemini.desktop'}
   - name: include group specific tasks
-    include: "{{ group_server }}.yml"
-    static: no
+    import_tasks: "{{ group_server }}.yml"
     when: group_server is defined
