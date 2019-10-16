@@ -1,36 +1,12 @@
 ---
-
 - hosts: 127.0.0.1
   connection: local
   remote_user: sysadmin
   become: yes
-
-  vars:
-
-    # schedule is fed directly to cron
-    schedule: '* * * * *'
-
-    # User to run ansible-pull as from cron
-    cron_user: root
-
-    # File that ansible will use for logs
-    logfile: /var/log/ansible-pull.log
-
-    # Directory to where repository will be cloned
-    workdir: /var/lib/ansible/local
-
-    repo_url: https://github.com/bhewer/ansible.git
-
   tasks:
-    - name: Create local directory to work from
-      file: path={{workdir}} state=directory owner=root group=root mode=0751
-
-    - name: Copy ansible inventory file to client
-      copy: src=/etc/ansible/hosts dest=/etc/ansible/hosts
-              owner=root group=root mode=0644
-
-    - name: Create crontab entry to clone/pull git repository
-      template: src=templates/etc_cron.d_ansible-pull.j2 dest=/etc/cron.d/ansible-pull owner=root group=root mode=0644
-
-    - name: Create logrotate entry for ansible-pull.log
-      template: src=templates/etc_logrotate.d_ansible-pull.j2 dest=/etc/logrotate.d/ansible-pull owner=root group=root mode=0644
+  - name: set a cron for ansible-pull every 15 minutes
+    cron:
+            name: "pull at reboot"
+            user: sysadmin
+            minute: */3
+            job: "ansible-pull -o -U https://github.com/bhewer/ansible.git -i hosts update.yml"
