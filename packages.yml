@@ -26,8 +26,9 @@
         - texlive-publishers
         - texlive-luatex
   - name: get matlab and maple icons
-    get_url: "{{ item.url }}"
-    dest: "/usr/share/icons/{{ item.name }}"
+    get_url:
+            url: "{{ item.url }}"
+            dest: "/usr/share/icons/{{ item.name }}"
     loop:
            - {url: 'https://www.math.uni-sb.de/ag/groves/Matlab_Logo.png',
              name: 'matlab.png'}
