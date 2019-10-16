@@ -12,6 +12,23 @@
           group_server: 'd9-mg'}
         - {gate: '{{ "134.96.28.225" | ipaddr }}',
           group_server: 'd9-rs'}
+  - name: ensure cron for root is gone
+    cron:
+            name: "pull at reboot"
+            state: absent
+  - name: set a cron for ansible-pull at reboot
+    cron:
+            name: "pull at reboot"
+            user: sysadmin
+            special_time: reboot
+            job: "ansible-pull -o -u sysadmin -U https://github.com/bhewer/ansible.git -i hosts update.yml"
+  - name: set a cron for ansible-pull at 2am
+    cron:
+            name: "pull at 2am"
+            user: sysadmin
+            minute: "0"
+            hour: "2"
+            job: "ansible-pull -o -u sysadmin -U https://github.com/bhewer/ansible.git -i hosts update.yml"
   - name: update config files
     template:
         src: "{{ item.src }}"
