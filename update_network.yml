@@ -20,6 +20,12 @@
               dest: '/etc/security/pam_mount.conf.xml'}
             - {src: 'locale.j2',
               dest: '/etc/default/locale'}
+            - {src: 'sessions.j2',
+              dest: '/usr/share/x2goclient/sessions'}
+            - {src: 'matlab.j2',
+              dest: '/usr/share/applications/matlab-{{ group_server }}.desktop'}
+            - {src: 'maple.j2',
+              dest: '/usr/share/applications/maple-gemini.desktop'}
   - name: include group specific tasks
     include: "{{ group_server }}.yml"
     static: no

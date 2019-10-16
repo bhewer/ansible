@@ -25,3 +25,11 @@
         - texlive-pstricks
         - texlive-publishers
         - texlive-luatex
+ - name: get matlab and maple icons
+   get_url: "{{ item.url }}"
+   dest: "/usr/share/icons/{{ item.name }}"
+   loop:
+           - {url:'https://www.math.uni-sb.de/ag/groves/Matlab_Logo.png',
+             name: 'matlab.png'}
+           - {url:'https://www.math.uni-sb.de/ag/groves/Maple_lg.png',
+             name: 'maple.png'}
