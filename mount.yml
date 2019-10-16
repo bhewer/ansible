@@ -1,15 +1,8 @@
 ---
 - hosts: all
-  vars:
-    gate: "{{ ansible_default_ipv4.gateway }}"
-    gate_mg: "{{ '134.96.64.225' | ipaddr }}"
-    gate_rs: "{{ '134.96.28.225' | ipaddr }}"
   remote_user: sysadmin
   become: yes
   tasks:
-  - set_fact:
-        group_server: "d9-mg"
-    when: gate == gate_mg
   - name: ensure that base packages for sshfs are installed
     apt:
         name: "{{ packages }}"

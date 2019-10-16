@@ -1,0 +1,26 @@
+---
+- hosts: localhost
+  remote_user: sysadmin
+  become: yes
+  tasks:
+  - set_fact:
+     group_server: "{{ item.group_server }}"
+    when: ansible_default_ipv4.gateway ==  item.gate
+    loop:
+        - {gate: '{{ "134.96.64.225" | ipaddr }}',
+          group_server: 'd9-mg'}
+        - {gate: '{{ "134.96.28.225" | ipaddr }}',
+          group_server: 'd9-rs'}
+  - name: update config files
+    template:
+        src: "{{ item.src }}"
+        dest: "{{ item.dest }}"
+    loop:
+            - {src: 'pam_mount.conf.j2',
+              dest: '/etc/security/pam_mount.conf.xml'}
+            - {src: 'locale.j2',
+              dest: '/etc/default/locale'}
+  - name: include group specific tasks
+    include: "{{ group_server }}".yml
+    static: no
+    when: group_server is defined

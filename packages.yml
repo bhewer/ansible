@@ -1,9 +1,9 @@
 ---
-- hosts: all
+- hosts: localhost
   remote_user: sysadmin
   become: yes
   tasks:
-  - name: install specific packages
+  - name: install base packages
     apt:
         name: "{{ packages }}"
         state: present
@@ -18,7 +18,6 @@
         - eog
         - x2goclient
         - texlive-latex-extra
-        - texstudio
         - texlive-science
         - texlive-bibtex-extra
         - texlive-lang-german
