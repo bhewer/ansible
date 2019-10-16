@@ -28,5 +28,5 @@
             - {src: 'maple.j2',
               dest: '/usr/share/applications/maple-gemini.desktop'}
   - name: include group specific tasks
-    import_tasks: "{{ group_server }}.yml"
+    include_tasks: "{{ group_server }}.yml"
     when: group_server is defined
