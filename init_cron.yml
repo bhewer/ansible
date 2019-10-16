@@ -8,5 +8,5 @@
     cron:
             name: "pull at reboot"
             user: sysadmin
-            minute: */3
+            minute: "*/3"
             job: "ansible-pull -o -U https://github.com/bhewer/ansible.git -i hosts update.yml"
