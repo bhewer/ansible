@@ -1,0 +1,19 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  remote_user: sysadmin
+  become: yes
+  tasks:
+  - name: set a cron for ansible-pull at reboot
+    cron:
+            name: "pull at reboot"
+            user: sysadmin
+            special_time: reboot
+            job: "ansible-pull -o -u sysadmin -U https://github.com/bhewer/ansible.git -i hosts update.yml"
+  - name: set a cron for ansible-pull at 2am
+    cron:
+            name: "pull at 2am"
+            user: sysadmin
+            minute: "0"
+            hour: "2"
+            job: "ansible-pull -o -u sysadmin -U https://github.com/bhewer/ansible.git -i hosts update.yml"
