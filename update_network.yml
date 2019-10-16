@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: all
   remote_user: sysadmin
   become: yes
   tasks:
