@@ -21,6 +21,6 @@
             - {src: 'locale.j2',
               dest: '/etc/default/locale'}
   - name: include group specific tasks
-    include: "{{ group_server }}".yml
+    include: "{{ group_server }}.yml"
     static: no
     when: group_server is defined
