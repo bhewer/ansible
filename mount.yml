@@ -18,8 +18,6 @@
         src: "{{ item.src }}"
         dest: "{{ item.dest }}"
     loop:
-            - {src: 'pam_mount.conf.j2',
-              dest: '/etc/security/pam_mount.conf.xml'}
             - {src: 'resetHome.j2',
               dest: '/etc/profile.d/resetHome.sh'}
             - {src: 'switchCups.j2',
