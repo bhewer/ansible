@@ -12,10 +12,6 @@
           group_server: 'd9-mg'}
         - {gate: '{{ "134.96.28.225" | ipaddr }}',
           group_server: 'd9-rs'}
-  - name: ensure cron for root is gone
-    cron:
-            name: "pull at reboot"
-            state: absent
   - name: set a cron for ansible-pull at reboot
     cron:
             name: "pull at reboot"
