@@ -7,3 +7,5 @@
         packages:
         - texmaker
         - vlc
+        - kile
+        - kdegames
