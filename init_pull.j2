@@ -1,0 +1,15 @@
+[Unit]
+Description=Pull for new config files via ansible-pull
+After=network.target
+
+[Service]
+User=sysadmin
+Type=oneshot
+WorkingDirectory=/home/sysadmin
+ExecStart= /usr/bin/ansible-pull -o -U https://github.com/bhewer/ansible.git -i hosts update.yml
+RemainAfterExit=true
+ExecStop=
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target

@@ -3,3 +3,18 @@
 - import_playbook: packages.yml
 - import_playbook: update_network.yml
 - import_playbook: mount.yml
+
+- hosts: 127.0.0.1
+  connection: local
+  remote_user: sysadmin
+  become: yes
+  tasks:
+  - name: create systemd unit for ansible-pull
+    template:
+            src: "init_pull.j2"
+            dest: "/etc/systemd/system/init_pull.service"
+  - name: enable pull service
+    systemd:
+            name: init_pull.service
+            enabled: yes
+            masked: no
