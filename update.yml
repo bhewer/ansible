@@ -1,3 +1,4 @@
 ---
 - import_playbook: update_network.yml
+- import_playbook: init_cron.yml
   #- import_playbook: update_system.yml

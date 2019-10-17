@@ -12,6 +12,9 @@
           group_server: 'd9-mg'}
         - {gate: '{{ "134.96.28.225" | ipaddr }}',
           group_server: 'd9-rs'}
+  - set_fact:
+     group_server: "gemini"
+    when: group_server is undefined
   - name: update config files
     template:
         src: "{{ item.src }}"
