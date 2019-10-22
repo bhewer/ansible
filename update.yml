@@ -23,11 +23,6 @@
             enabled: no
             masked: no
 
-  - name: remove old pull service
-    file:
-            path: "/etc/systemd/system/init_pull.service"
-            state: absent
-
   - name: create systemd unit for ansible-pull
     template:
             src: "update_shutdown.j2"
