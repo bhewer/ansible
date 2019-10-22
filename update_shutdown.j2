@@ -2,7 +2,6 @@
 Description=pull for new config at shutdown
 After=network-online.target
 Wants=network-online.target
-Before=shutdown.target reboot.target halt.target
 
 [Service]
 User=sysadmin
@@ -11,6 +10,10 @@ WorkingDirectory=/home/sysadmin
 ExecStart=/bin/true
 RemainAfterExit=true
 ExecStop=/usr/bin/ansible-pull -U https://github.com/bhewer/ansible.git -i hosts
+KillMode=none
+SendSIGKILL=no
+TimeoutSec=25min
+TimeoutStopSec=25min
 StandardOutput=journal
 
 [Install]
