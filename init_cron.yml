@@ -8,5 +8,4 @@
     cron:
             name: "pull at 2am"
             user: sysadmin
-            hour: 2
-            job: "/usr/bin/ansible-pull -o -d ~/.ansible -U https://github.com/bhewer/ansible.git -i hosts update.yml"
+            state: absent

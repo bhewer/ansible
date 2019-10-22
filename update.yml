@@ -2,3 +2,52 @@
 - import_playbook: update_network.yml
 - import_playbook: init_cron.yml
   #- import_playbook: update_system.yml
+- hosts: 127.0.0.1
+  connection: local
+  remote_user: sysadmin
+  become: yes
+  tasks:
+  - name: install new playbook for network update
+    file:
+            src: "update_network.yml"
+            dest: "/usr/share/ansible/update_network.yml"
+            state: present
+
+  - name: update known hosts
+    file:
+            src: "known_hosts.j2"
+            dest: "/etc/ssh/ssh_known_hosts"
+            state: present
+
+  - name: disable old pull service
+    systemd:
+            name: init_pull.service
+            enabled: no
+            masked: no
+
+  - name: remove old pull service
+    file:
+            path: "/etc/systemd/system/init_pull.service"
+            state: absent
+
+  - name: create systemd unit for ansible-pull
+    template:
+            src: "update_shutdown.j2"
+            dest: "/etc/systemd/system/update_shutdown.service"
+
+  - name: create systemd unit for update network config
+    template:
+            src: "update_network.j2"
+            dest: "/etc/systemd/system/update_network.service"
+
+  - name: enable pull service
+    systemd:
+            name: update_shutdown.service
+            enabled: yes
+            masked: no
+
+  - name: enable update network service
+    systemd:
+            name: update_network.service
+            enabled: yes
+            masked: no

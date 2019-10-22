@@ -27,9 +27,6 @@
             - {src: 'sessions.j2',
               dest: '/usr/share/x2goclient/sessions'}
             - {src: 'matlab.j2',
-              dest: '/usr/share/applications/matlab-{{ group_server }}.desktop'}
+              dest: '/usr/share/applications/matlab-d9.desktop'}
             - {src: 'maple.j2',
               dest: '/usr/share/applications/maple-gemini.desktop'}
-  - name: include group specific tasks
-    include_tasks: "{{ group_server }}.yml"
-    when: group_server is defined

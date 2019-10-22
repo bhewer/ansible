@@ -2,15 +2,16 @@
 Description=Pull for new config files via ansible-pull
 After=network-online.target
 Wants=network-online.target
+Before=shutdown.target reboot.target halt.target
 
 [Service]
 User=sysadmin
 Type=oneshot
 WorkingDirectory=/home/sysadmin
-ExecStart= /usr/bin/ansible-pull -U https://github.com/bhewer/ansible.git 
+ExecStart=/bin/true
 RemainAfterExit=true
-ExecStop=
+ExecStop=/usr/bin/ansible-pull -U https://github.com/bhewer/ansible.git -i hosts
 StandardOutput=journal
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=final.taget

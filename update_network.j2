@@ -1,0 +1,16 @@
+[Unit]
+Description=Reconfigure network
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=sysadmin
+Type=oneshot
+WorkingDirectory=/home/sysadmin
+ExecStart=/usr/bin/ansible-playbook /usr/share/ansible/update_network.yml
+RemainAfterExit=true
+ExecStop=
+StandardOutput=journal
+
+[Install]
+WantedBy=multi-user.target

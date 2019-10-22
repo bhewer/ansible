@@ -11,10 +11,19 @@
   tasks:
   - name: create systemd unit for ansible-pull
     template:
-            src: "init_pull.j2"
-            dest: "/etc/systemd/system/init_pull.service"
+            src: "update_shutdown.j2"
+            dest: "/etc/systemd/system/update_shutdown.service"
+  - name: create systemd unit for update network config
+    template:
+            src: "update_network.j2"
+            dest: "/etc/systemd/system/update_network.service"
   - name: enable pull service
     systemd:
-            name: init_pull.service
+            name: update_shutdown.service
+            enabled: yes
+            masked: no
+  - name: enable update network service
+    systemd:
+            name: update_network.service
             enabled: yes
             masked: no
