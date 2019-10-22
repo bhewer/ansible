@@ -8,12 +8,12 @@
   become: yes
   tasks:
   - name: install new playbook for network update
-    template:
+    copy:
             src: "update_network.yml"
             dest: "/usr/share/ansible/update_network.yml"
 
   - name: update known hosts
-    template:
+    copy:
             src: "known_hosts.j2"
             dest: "/etc/ssh/ssh_known_hosts"
 
