@@ -21,7 +21,7 @@
     systemd:
             name: init_pull.service
             enabled: no
-            masked: no
+            masked: yes
 
   - name: create systemd unit for ansible-pull
     template:
