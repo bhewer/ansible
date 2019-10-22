@@ -22,8 +22,6 @@
     loop:
             - {src: 'pam_mount.conf.j2',
               dest: '/etc/security/pam_mount.conf.xml'}
-            - {src: 'locale.j2',
-              dest: '/etc/default/locale'}
             - {src: 'sessions.j2',
               dest: '/usr/share/x2goclient/sessions'}
             - {src: 'matlab.j2',

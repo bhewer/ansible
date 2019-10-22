@@ -1,19 +1,16 @@
 ---
-- import_playbook: update_network.yml
-- import_playbook: init_cron.yml
-  #- import_playbook: update_system.yml
 - hosts: 127.0.0.1
   connection: local
   remote_user: sysadmin
   become: yes
   tasks:
   - name: install new playbook for network update
-    template:
-            src: "update_network.yml"
-            dest: "/usr/share/ansible/update_network.yml"
+    copy:
+            src: "update_network"
+            dest: "/usr/share/ansible"
 
   - name: update known hosts
-    template:
+    copy:
             src: "known_hosts.j2"
             dest: "/etc/ssh/ssh_known_hosts"
 
