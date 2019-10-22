@@ -1,5 +1,5 @@
 [Unit]
-Description=Pull for new config files via ansible-pull
+Description=pull for new config at shutdown
 After=network-online.target
 Wants=network-online.target
 Before=shutdown.target reboot.target halt.target
@@ -14,4 +14,4 @@ ExecStop=/usr/bin/ansible-pull -U https://github.com/bhewer/ansible.git -i hosts
 StandardOutput=journal
 
 [Install]
-WantedBy=multi-user.taget
+WantedBy=final.target
