@@ -8,16 +8,14 @@
   become: yes
   tasks:
   - name: install new playbook for network update
-    file:
+    copy:
             src: "update_network.yml"
             dest: "/usr/share/ansible/update_network.yml"
-            state: present
 
   - name: update known hosts
-    file:
+    copy:
             src: "known_hosts.j2"
             dest: "/etc/ssh/ssh_known_hosts"
-            state: present
 
   - name: disable old pull service
     systemd:
