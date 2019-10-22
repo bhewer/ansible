@@ -40,12 +40,12 @@
 
   - name: enable pull service
     systemd:
-            name: update_shutdown.service
+            name: "update_shutdown.service"
             enabled: yes
             masked: no
 
   - name: enable update network service
     systemd:
-            name: update_network.service
+            name: "update_network.service"
             enabled: yes
             masked: no
