@@ -10,7 +10,7 @@
     loop:
         - {gate: '{{ "134.96.64.225" | ipaddr }}',
           group_server: 'd9-mg'}
-        - {gate: '{{ "134.96.28.225" | ipaddr }}',
+        - {gate: '{{ "134.96.28.97" | ipaddr }}',
           group_server: 'd9-rs'}
   - set_fact:
      group_server: "gemini"
