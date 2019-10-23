@@ -9,6 +9,11 @@
             upgrade: dist
             update_cache: yes
 
+  - name: update init playbook
+    copy:
+            src: "update_network"
+            dest: "/usr/share/ansible"
+
   - name: include group specific tasks
     include_tasks: "{{ group_server }}.yml"
     when: group_server is defined
