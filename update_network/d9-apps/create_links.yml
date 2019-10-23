@@ -14,4 +14,6 @@
           - {name: 'inkscape',
             icon: 'inkscape.svg',
             command: 'inkscape'}
-
+          - {name: 'handbrake',
+            icon: 'handbrake.svg',
+            command: 'handbrake-gtk'}
