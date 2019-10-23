@@ -1,0 +1,17 @@
+- name: copy icons
+  copy:
+          src: "icons/"
+          dest: "/usr/share/icons/"
+
+- name: update d9 apps
+  template:
+          src: "d9-app.j2"
+          dest: "/usr/share/applications/{{ item.name }}-d9.desktop"
+  loop:
+          - {name: 'matlab',
+            icon: 'matlab.png',
+            command: 'matlab -desktop'}
+          - {name: 'inkscape',
+            icon: 'inkscape.svg',
+            command: 'inkscape'}
+

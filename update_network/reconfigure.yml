@@ -30,16 +30,8 @@
               dest: '/etc/security/pam_mount.conf.xml'}
             - {src: 'sessions.j2',
               dest: '/usr/share/x2goclient/sessions'}
-            - {src: 'matlab.j2',
-              dest: '/usr/share/applications/matlab-d9.desktop'}
             - {src: 'maple.j2',
               dest: '/usr/share/applications/maple-gemini.desktop'}
-  - name: update d9 apps
-    template:
-            src: "d9-app.j2"
-            dest: "/usr/share/applications/{{ item.name }}-d9.desktop"
-    loop:
-            - {name: 'matlab',
-              command: 'matlab -desktop'}
-            - {name: 'inkscape',
-              command: 'inkscape'}
+  - name: include d9 app specific taks
+    include-tasks: "d9-apps/create_links.yml"
+

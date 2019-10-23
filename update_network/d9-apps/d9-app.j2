@@ -1,6 +1,6 @@
 [Desktop Entry]
 Exec=sh -c '/usr/bin/start_remote ~ {{ group_server }} "{{ item.command }}"'
-Icon=/usr/share/icons/matlab.png
+Icon=/usr/share/icons/{{ item.icon }}
 Name={{ item.name }}-d9
 StartupNotify=true
 Terminal=false
