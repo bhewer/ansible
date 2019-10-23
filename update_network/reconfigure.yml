@@ -33,3 +33,10 @@
               dest: '/usr/share/applications/matlab-d9.desktop'}
             - {src: 'maple.j2',
               dest: '/usr/share/applications/maple-gemini.desktop'}
+  - name: update d9 apps
+    template:
+            src: "d9-app.j2"
+            dest: "/usr/share/applications/{{ item.name }}-d9.desktop"
+    loop:
+            - {name: 'matlab',
+              command: 'matlab -desktop'}
