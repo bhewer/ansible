@@ -19,6 +19,7 @@
     copy:
             src: "start_remote.sh"
             dest: "/usr/bin/start_remote"
+            mode: "+x"
 
   - name: update config files
     template:
