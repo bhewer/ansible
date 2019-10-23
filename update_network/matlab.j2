@@ -1,7 +1,7 @@
 [Desktop Entry]
-Exec=sh -c "x2goclient --hide --session-conf\=/usr/share/x2goclient/sessions --user\=\$USER --sessionid\=20191002112254824"
+Exec=sh -c '/usr/bin/start remote {{ group_server }} "matlab -desktop"'
 Icon=/usr/share/icons/matlab.png
-Name=Matlab-{{ group_server }}
+Name=Matlab-d9
 StartupNotify=true
 Terminal=false
 Type=Application

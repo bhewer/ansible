@@ -15,6 +15,11 @@
   - set_fact:
      group_server: "gemini"
     when: group_server is undefined
+  - name: install remote script
+    copy:
+            src: "start_remote.sh"
+            dest: "/usr/bin/start_remote"
+
   - name: update config files
     template:
         src: "{{ item.src }}"
