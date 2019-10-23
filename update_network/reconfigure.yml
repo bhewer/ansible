@@ -40,6 +40,6 @@
             dest: "/usr/share/applications/{{ item.name }}-d9.desktop"
     loop:
             - {name: 'matlab',
-              command: 'matlab -desktop'},
+              command: 'matlab -desktop'}
             - {name: 'inkscape',
               command: 'inkscape'}
