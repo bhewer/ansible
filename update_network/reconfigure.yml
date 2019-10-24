@@ -20,13 +20,13 @@
 
   - name: install remote key script
     copy:
-            src: "./generate_remoteKey.sh"
+            src: "generate_remoteKey.sh"
             dest: "/usr/bin/generate_remoteKey"
             mode: "+x"
 
   - name: install remote script
     copy:
-            src: "./start_remote.sh"
+            src: "start_remote.sh"
             dest: "/usr/bin/start_remote"
             mode: "+x"
 
@@ -35,11 +35,11 @@
         src: "{{ item.src }}"
         dest: "{{ item.dest }}"
     loop:
-            - {src: './pam_mount.conf.j2',
+            - {src: 'pam_mount.conf.j2',
               dest: '/etc/security/pam_mount.conf.xml'}
-            - {src: './sessions.j2',
+            - {src: 'sessions.j2',
               dest: '/usr/share/x2goclient/sessions'}
-            - {src: './maple.j2',
+            - {src: 'maple.j2',
               dest: '/usr/share/applications/maple-gemini.desktop'}
   - name: include d9 app specific taks
     include_tasks: "d9-apps/create_links.yml"
