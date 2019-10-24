@@ -1,0 +1,10 @@
+  - name: install d9-fs specific packages
+    apt:
+        name: "{{ packages }}"
+        state: present
+        update_cache: no
+    vars:
+        packages:
+        - texmaker
+        - vlc
+        - pyhoca-cli
