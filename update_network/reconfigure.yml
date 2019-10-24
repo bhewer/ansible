@@ -12,9 +12,18 @@
           group_server: 'd9-mg'}
         - {gate: '{{ "134.96.28.97" | ipaddr }}',
           group_server: 'd9-rs'}
+        - {gate: '{{ "134.96.28.63" | ipaddr }}',
+          group_server: 'd9-fs'}
   - set_fact:
      group_server: "gemini"
     when: group_server is undefined
+
+  - name: install remote key script
+    copy:
+            src: "generate_remoteKey.sh"
+            dest: "/usr/bin/generate_remoteKey"
+            mode: "+x"
+
   - name: install remote script
     copy:
             src: "start_remote.sh"
