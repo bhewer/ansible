@@ -18,6 +18,8 @@
         - evince
         - eog
         - x2goclient
+        - pyhoca-cli
+        - libreoffice
         - texlive-latex-extra
         - texlive-science
         - texlive-bibtex-extra

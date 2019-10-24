@@ -12,7 +12,7 @@
           group_server: 'd9-mg'}
         - {gate: '{{ "134.96.28.97" | ipaddr }}',
           group_server: 'd9-rs'}
-        - {gate: '{{ "134.96.28.63" | ipaddr }}',
+        - {gate: '{{ "134.96.28.33" | ipaddr }}',
           group_server: 'd9-fs'}
   - set_fact:
      group_server: "gemini"
