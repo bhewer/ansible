@@ -1,7 +1,7 @@
 ---
 - import_playbook: ldap.yml
 - import_playbook: packages.yml
-- import_playbook: update_network.yml
+- import_playbook: update_network/reconfigure.yml
 - import_playbook: mount.yml
 
 - hosts: 127.0.0.1
