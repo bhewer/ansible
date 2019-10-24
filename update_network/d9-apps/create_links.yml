@@ -3,7 +3,7 @@
           src: "icons/"
           dest: "/usr/share/icons/"
 
-- name: update d9 apps
+- name: update d9 desktop apps
   template:
           src: "d9-app.j2"
           dest: "/usr/share/applications/{{ item.name }}-d9.desktop"
@@ -17,3 +17,11 @@
           - {name: 'handbrake',
             icon: 'handbrake.svg',
             command: 'handbrake-gtk'}
+
+- name: update d9 commandline apps
+  template:
+          src: "d9-cmdapp.j2"
+          dest: "/usr/bin/{{ item }}"
+          mode: "+x"
+  loop:
+          - gap
