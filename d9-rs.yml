@@ -1,4 +1,4 @@
-  - name: install d9-mg specific packages
+  - name: install d9-rs specific packages
     apt:
         name: "{{ packages }}"
         state: present
