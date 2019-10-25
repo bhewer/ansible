@@ -14,6 +14,16 @@
           group_server: 'd9-rs'}
         - {gate: '{{ "134.96.28.33" | ipaddr }}',
           group_server: 'd9-fs'}
+        - {gate: '{{ "134.96.13.65" | ipaddr }}',
+          group_server: 'd9-cb'}
+        - {gate: '{{ "134.96.28.193" | ipaddr }}',
+          group_server: 'd9-sb'}
+        - {gate: '{{ "134.96.28.1" | ipaddr }}',
+          group_server: 'd9-je'}
+        - {gate: '{{ "134.96.28.161" | ipaddr }}',
+          group_server: 'd9-mf'}
+        - {gate: '{{ "134.96.28.255" | ipaddr }}',
+          group_server: 'd9-gw'}
   - set_fact:
      group_server: "gemini"
     when: group_server is undefined
