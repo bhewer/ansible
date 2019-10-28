@@ -18,6 +18,16 @@
             icon: 'handbrake.svg',
             command: 'handbrake-gtk'}
 
+- name: flowblade for d9-rs
+  template:
+          src: "d9-app.j2"
+          dest: "/usr/share/applications/{{ item.name }}-d9.desktop"
+  loop:
+          - {name: 'flowblade',
+            icon: 'flowblade.svg',
+            command: 'flowblade'}
+  when: group_server == "d9-rs"
+
 - name: update d9 commandline apps
   template:
           src: "d9-cmdapp.j2"
