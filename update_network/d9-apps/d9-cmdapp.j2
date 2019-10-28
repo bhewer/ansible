@@ -1,3 +1,3 @@
 #!/bin/bash
 generate_remoteKey ~
-ssh -t {{ group_server }} "cd $(pwd | sed "s|^$HOME|~|") ; exec {{ item }}"
+ssh -t {{ group_server }} "cd $(pwd | sed "s|^$HOME|~|") ; tmux new-session -A -s {{ item }} {{ item }} $@"
