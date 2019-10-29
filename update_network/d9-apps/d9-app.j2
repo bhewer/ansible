@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=sh -c '/usr/bin/start_remote ~ {{ group_server }} "{{ item.command }}"'
+Exec=sh -c '/usr/local/bin/start_remote ~ {{ group_server }} "{{ item.command }}"'
 Icon=/usr/share/icons/{{ item.icon }}
 Name={{ item.name }}-d9
 StartupNotify=true
