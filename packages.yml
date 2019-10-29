@@ -28,6 +28,9 @@
         - texlive-pstricks
         - texlive-publishers
         - texlive-luatex
+        - texstudio
+        - kile
+        - emacs
   - name: get matlab and maple icons
     get_url:
             url: "{{ item.url }}"
