@@ -33,12 +33,16 @@
             src: "generate_remoteKey.sh"
             dest: "/usr/local/bin/generate_remoteKey"
             perms: yes
+            recursive: yes
+            delete: yes
 
   - name: install remote script
     synchronize:
             src: "start_remote.sh"
             dest: "/usr/local/bin/start_remote"
             perms: yes
+            recursive: yes
+            delete: yes
 
   - name: update config files
     template:

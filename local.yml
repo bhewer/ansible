@@ -14,6 +14,8 @@
             src: "update_network"
             dest: "/usr/share/ansible"
             perms: yes
+            recursive: yes
+            delete: yes
 
   - name: install packages
     apt:
