@@ -24,14 +24,15 @@
           dest: "/usr/share/applications/{{ item.name }}-d9.desktop"
   loop:
           - {name: 'flowblade',
-            icon: 'flowblade.svg',
+            icon: 'flowblade.png',
             command: 'flowblade'}
   when: group_server == "d9-rs"
 
 - name: update d9 commandline apps
   template:
           src: "d9-cmdapp.j2"
-          dest: "/usr/bin/{{ item }}"
+          dest: "/usr/bin/{{ item.name }}"
           mode: "+x"
   loop:
-          - gap
+          - {name: 'gap',
+            command: '/opt/gap/bin/gap.sh'}
