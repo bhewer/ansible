@@ -33,12 +33,14 @@
             src: "generate_remoteKey.sh"
             dest: "/usr/local/bin/generate_remoteKey"
             mode: "+x"
+            force: yes
 
   - name: install remote script
     copy:
             src: "start_remote.sh"
             dest: "/usr/local/bin/start_remote"
             mode: "+x"
+            force: yes
 
   - name: update config files
     template:
