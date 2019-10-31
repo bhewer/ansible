@@ -29,18 +29,16 @@
     when: group_server is undefined
 
   - name: install remote key script
-    copy:
+    synchronize:
             src: "generate_remoteKey.sh"
             dest: "/usr/local/bin/generate_remoteKey"
-            mode: "+x"
-            force: yes
+            perms: yes
 
   - name: install remote script
-    copy:
+    synchronize:
             src: "start_remote.sh"
             dest: "/usr/local/bin/start_remote"
-            mode: "+x"
-            force: yes
+            perms: yes
 
   - name: update config files
     template:

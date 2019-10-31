@@ -10,9 +10,10 @@
             update_cache: yes
 
   - name: update init playbook
-    copy:
+    synchronize:
             src: "update_network"
             dest: "/usr/share/ansible"
+            perms: yes
 
   - name: install packages
     apt:
