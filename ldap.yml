@@ -55,7 +55,7 @@
     vars:
         packages:
         - aptitude
-        - libnss-ldap
+        - libnss-ldapd
         - libpam-ldap
         - nscd
         - portmap
