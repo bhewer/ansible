@@ -32,3 +32,4 @@
         - gvfs-backends
         - gvfs-fuse
         - emacs
+        - gnome-calculator

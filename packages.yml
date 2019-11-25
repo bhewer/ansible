@@ -28,7 +28,6 @@
         - texlive-pstricks
         - texlive-publishers
         - texlive-luatex
-        - texlive-fonts-extra
         - texstudio
         - kile
         - emacs

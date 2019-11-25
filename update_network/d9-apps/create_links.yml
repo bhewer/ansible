@@ -31,7 +31,7 @@
 - name: update d9 commandline apps
   template:
           src: "d9-cmdapp.j2"
-          dest: "/usr/bin/{{ item.name }}"
+          dest: "/usr/local/bin/{{ item.name }}"
           mode: "+x"
   loop:
           - {name: 'gap',
