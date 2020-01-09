@@ -4,6 +4,11 @@
   remote_user: sysadmin
   become: yes
   tasks:
+  - name: update known hosts
+    copy:
+            src: "known_hosts.j2"
+            dest: "/etc/ssh/ssh_known_hosts"
+
   - name: upgrade machine
     apt:
             upgrade: dist
