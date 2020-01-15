@@ -24,6 +24,8 @@
           group_server: 'd9-mf'}
         - {gate: '{{ "134.96.28.225" | ipaddr }}',
           group_server: 'd9-gw'}
+        - {gate: '{{ "134.96.28.65" | ipaddr }}',
+          group_server: 'd9-sp'}
         - {gate: '{{ "134.96.32.1" | ipaddr }}',
           group_server: 'd9-bb'}
   - set_fact:
